@@ -1,0 +1,10 @@
+<main>
+  <h1>🎬 Sistema de Cine</h1>
+  @if (auth.perfil(); as p) {
+    <p>Hola, {{ p.nombre }} ({{ p.rol }})</p>
+    @if (p.rol === 'admin') { <a routerLink="/admin">Ir al backoffice</a> }
+    <button (click)="auth.logout()">Cerrar sesión</button>
+  } @else {
+    <a routerLink="/login">Ingresar</a> · <a routerLink="/registro">Registrarme</a>
+  }
+</main>
